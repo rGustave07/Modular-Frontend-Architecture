@@ -1,9 +1,8 @@
-import Counter from '../../presentation/pages/Counter.vue';
+// React router routes can be generated here or somewhere else
 
-export const counterRoutes = [
+export const routes = [
   {
     path: '/',
-    name: 'Counter',
-    component: Counter
+    name: 'Home',
   }
 ];

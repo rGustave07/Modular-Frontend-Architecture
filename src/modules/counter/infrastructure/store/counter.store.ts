@@ -1,5 +1,3 @@
-import vuexStore from './vuex/counter.store.vuex';
-import { VUEX_MUTATION_SET_COUNT } from './vuex/counter.store.vuex.mutations';
 import reduxStore from './redux/counter.store.redux';
 import { REDUX_MUTATION_SET_COUNT } from './redux/counter.store.redux';
 import { mobXStore, observe } from './mobX/counter.store.mobX';
@@ -26,21 +24,21 @@ import localStorageCounter from './localStorage/counter.store.localStorage';
 
 // ================== REDUX ==================
 
-// class CounterStore {
-//   public subscribeToCount(callback: Function) {
-//     reduxStore.subscribe(() => {
-//       callback(reduxStore.getState().count);
-//     });
-//   }
+class CounterStore {
+  public subscribeToCount(callback: Function) {
+    reduxStore.subscribe(() => {
+      callback(reduxStore.getState().count);
+    });
+  }
 
-//   public getCount() {
-//     return reduxStore.getState().count;
-//   }
+  public getCount() {
+    return reduxStore.getState().count;
+  }
 
-//   public setCount(newCount: number) {
-//     reduxStore.dispatch({ type: REDUX_MUTATION_SET_COUNT, payload: { newCount } });
-//   }
-// }
+  public setCount(newCount: number) {
+    reduxStore.dispatch({ type: REDUX_MUTATION_SET_COUNT, payload: { newCount } });
+  }
+}
 
 // ================== MOBX ==================
 
@@ -81,20 +79,20 @@ import localStorageCounter from './localStorage/counter.store.localStorage';
 
 // ================== LOCAL STORAGE ==================
 
-class CounterStore {
-  public subscribeToCount(callback: Function) {
-    localStorageCounter.subscribe((newCount: number) => {
-      callback(newCount);
-    });
-  }
+// class CounterStore {
+//   public subscribeToCount(callback: Function) {
+//     localStorageCounter.subscribe((newCount: number) => {
+//       callback(newCount);
+//     });
+//   }
 
-  public getCount() {
-    return localStorageCounter.getCount();
-  }
+//   public getCount() {
+//     return localStorageCounter.getCount();
+//   }
 
-  public setCount(newCount: number) {
-    localStorageCounter.setCount(newCount);
-  }
-}
+//   public setCount(newCount: number) {
+//     localStorageCounter.setCount(newCount);
+//   }
+// }
 
 export default new CounterStore();

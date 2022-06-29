@@ -1,4 +1,4 @@
-import CounterRepositoryInterface from '../domain/counter.repository.interface';
+import CounterRepositoryInterface from './counter.repository.interface';
 import counterStore from './store/counter.store';
 
 class CounterRepository implements CounterRepositoryInterface {
